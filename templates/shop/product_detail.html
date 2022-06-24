@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{product.name}}
+{% endblock title %}
+
+
+{% block main %}
+<div class="row">
+
+    <div class="col-md-5 mt-5">
+
+        {% if product.image %}  
+            <img src="{{product.image.url}}" class="img-fluid" alt="Responsive image">
+        {% else %}
+            <img src="{% static 'noimg.png' %}" class="img-fluid" alt="Responsive image">
+        {% endif %}
+            
+    </div>
+
+    <div class="col-md-6 mt-5">
+
+        <h1>{{product.name}}</h1>
+        <hr>
+
+        <a href="{{product.category.get_absolute_url}}">
+            <h4>{{product.category}}</h4>
+        </a>
+
+        <h4>${{product.price}}</h4>
+        <hr>
+        <form action="{% url 'cart_add' product.id %}" method="post">
+            {{cart_product_form}}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart" class="btn btn-dark">
+        </form>
+        <hr>
+        <p>{{product.description|linebreaks}}</p>
+
+    </div>
+        
+
+</div>
+
+
+{% endblock main %}
+    
+    
