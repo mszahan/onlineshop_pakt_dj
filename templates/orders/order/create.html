@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock head %}
+    
+
+{% block title %}
+    checkout
+{% endblock title %}
+    
+
+{% block main %}
+<div class='container'>
+    <div class='window'>
+      <div class='order-info'>
+        <div class='order-info-content'>
+          <h2>Order Summary</h2>
+                  <div class='line'></div>
+
+        <div class="me-5">
+
+            
+            {% for item in cart %}
+
+            <table class='order-table'>
+              <tbody>
+                <tr>
+                  <td><img src='{{item.product.image.url}}' class='full-width'></img>
+                  </td>
+                  <td>
+                    <br> <span class='thin'>{{item.product.name}}</span>
+                    <br> Quantity : {{item.quantity}}<br> <span class='thin small'> Price: ${{item.price}} </span>
+                  </td>
+    
+                </tr>
+                <tr>
+                  <td>
+                    <div class='price'>{{item.total_price}}</div>
+                  </td>
+                </tr>
+              </tbody>
+    
+            </table>
+
+            <hr>
+            {% endfor %}
+        </div>
+
+
+
+    <div class='total mt-5' >
+      <span style='float:left;'>
+        TOTAL
+      </span>
+      <span style='float:right; text-align:right;'>
+        ${{cart.get_total_price}}
+      </span>
+    </div>
+
+  </div>
+  </div>
+          <div class='credit-info'>
+            <div class='credit-info-content'>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table class='half-input-table'>
+                      {{form.as_table}}
+                    </table>
+                    <button class='pay-btn' type="submit">Place order</button>
+        
+                </form>
+            </div>
+  
+          </div>
+        </div>
+  </div>
+{% endblock main %}
+

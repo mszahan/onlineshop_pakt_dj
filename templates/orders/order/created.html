@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Thank you
+{% endblock title %}
+
+
+
+{% block main %}
+<div class="alert alert-success text-center mt-5" role="alert">
+    <p>Your order has been successfully completed. Your order number is <strong>{{ order.id }}</strong>.</p>
+  </div>
+{% endblock main %}
+    
