@@ -12,13 +12,13 @@ class Order(models.Model):
     created = models.DateField(auto_now_add=True)
     update = models.DateField(auto_now=True, auto_now_add=False)
     paid = models.BooleanField(default=False)
+    braintree_id = models.CharField(max_length=150, blank=True)
 
     class Meta:
         ordering = ('-created',)
     def __str__(self):
         return f"Order: {self.id}"
     def get_total_cost(self):
-        # need to figure out the last portion of this line of code
         return sum(item.get_cost() for item in self.items.all())
 
 

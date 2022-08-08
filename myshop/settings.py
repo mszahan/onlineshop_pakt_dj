@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
 import os
+import braintree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+#brain tree config
+BRAINTREE_MERCHANT_ID = 'dyc5hhjkpx9fkpy7'
+BRAINTREE_PUBLIC_KEY = 'kr3w57fm769yy6pc'
+BRAINTREE_PRIVATE_KEY = '009ca7c98217f422507986190368f5fb'
+
+BRAINTREE_CONF = braintree.Configuration( 
+    braintree.Environment.Sandbox, 
+    BRAINTREE_MERCHANT_ID, 
+    BRAINTREE_PUBLIC_KEY, 
+    BRAINTREE_PRIVATE_KEY
+)

@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/payment_process.css' %}">
+{% endblock head %}
+  
+
+{% block title %}
+    Pay by credit card
+{% endblock title %}
+
+
+
+{% block main %}
+
+<div class="container py-5">
+  <!-- For demo purpose -->
+  <div class="row mb-4">
+      <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-6">Pay by credit card</h1>
+      </div>
+  </div> <!-- End -->
+  <div class="row">
+      <div class="col-lg-6 mx-auto">
+          <div class="card ">
+              <div class="card-header">
+                  <!-- Credit card form content -->
+                  <div class="tab-content">
+                      <!-- credit card info-->
+                      <div id="credit-card" class="tab-pane fade show active pt-3">
+                          <form id="payment" method="post">
+                              <div class="form-group"> 
+                                <label for="cardNumber">
+                                      <h6>Card number</h6>
+                                  </label>
+                                  <div class="input-group"> 
+                                    <input type="text" id="card-number" name="cardNumber" placeholder="Valid card number" class="form-control " required>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-sm-8">
+                                      <div class="form-group"> 
+                                        <label>
+                                          <span class="hidden-xs">
+                                                  <h6>Expiration Date</h6>
+                                            </span>
+                                        </label>
+                                        <div class="input-group"> 
+                                            <input type="text" id="expiration-date" class="form-control" required>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                              <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                          </label> <input type="text" id="cvv" required class="form-control"> </div>
+                                  </div>
+                              </div>
+                              <div class="card-footer text-center"> 
+                                <input type="hidden" id="nonce" name="payment_method_nonce" value="">
+                                {% csrf_token %}
+                                <button type="submit" value="Pay" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                              </div>
+                          </form>
+                      </div>
+                  </div> <!-- End -->
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+<!-- <h1>Pay by credit card</h1>
+<form id="payment" method="post">
+
+  <label for="card-number">Card Number</label>
+  <div id="card-number" class="field"></div>
+
+  <label for="cvv">CVV</label>
+  <div id="cvv" class="field"></div>
+
+  <label for="expiration-date">Expiration Date</label>
+  <div id="expiration-date" class="field"></div>
+
+  <input type="hidden" id="nonce" name="payment_method_nonce" value="">
+  {% csrf_token %}
+  <input type="submit" value="Pay">
+</form> -->
+
+
+{% endblock main %}
+
+
+
+{% block bottom %}
+<script src="https://js.braintreegateway.com/web/3.58.0/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.58.0/js/hosted-fields.min.js"></script>
+<script>
+  var form = document.querySelector('#payment');
+  var submit = document.querySelector('input[type="submit"]');
+
+  braintree.client.create({
+    authorization: '{{ client_token }}'
+  }, function (clientErr, clientInstance) {
+    if (clientErr) {
+      console.error(clientErr);
+      return;
+    }
+
+    braintree.hostedFields.create({
+      client: clientInstance,
+      styles: {
+        'input': {'font-size': '13px'},
+        'input.invalid': {'color': 'red'},
+        'input.valid': {'color': 'green'}
+      },
+      fields: {
+        number: {selector: '#card-number'},
+        cvv: {selector: '#cvv'},
+        expirationDate: {selector: '#expiration-date'}
+      }
+    }, function (hostedFieldsErr, hostedFieldsInstance) {
+      if (hostedFieldsErr) {
+        console.error(hostedFieldsErr);
+        return;
+      }
+
+      submit.removeAttribute('disabled');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+          if (tokenizeErr) {
+            console.error(tokenizeErr);
+            return;
+          }
+          // set nonce to send to the server
+          document.getElementById('nonce').value = payload.nonce;
+          // submit form
+          document.getElementById('payment').submit();
+        });
+      }, false);
+    });
+  });
+</script>  
+{% endblock bottom %}
+    
