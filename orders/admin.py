@@ -3,6 +3,8 @@ from curses.ascii import HT
 import datetime
 from django.http import HttpResponse
 from django.contrib import admin
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 from .models import Order, OrderItem
 
 
@@ -36,9 +38,19 @@ export_to_csv.short_description = 'Export to CSV'
 
 
 
+# for changing the view of the order admin pannel and using the customized template
+# This is a function that takes an Order object as........ 
+# an argument and returns an HTML link for the admin_order_detail URL
+
+def order_detail(obj):
+    url = reverse('admin_order_detail', args = [obj.id])
+    return mark_safe(f'<a href="{url}"> View </a>')
+
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email', 'address',
+    list_display = ['id', order_detail, 'first_name', 'last_name', 'email', 'address',
                      'postal_code', 'city', 'paid', 'created', 'update'] 
     list_filter = ['paid', 'created', 'update']
     inlines = (OrderItemInline,)
