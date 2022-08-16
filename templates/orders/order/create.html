@@ -49,17 +49,26 @@
             <hr>
             {% endfor %}
         </div>
+        
+        {% if cart.coupon %}
 
+        <div>
+          Subtotal : ${{cart.get_total_price}} <br>
+          "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off) <span class="neg text-danger"> : - ${{ cart.get_discount|floatformat:2 }}</span>
 
+        </div>
+        {% endif %}
 
+        
     <div class='total mt-5' >
       <span style='float:left;'>
         TOTAL
       </span>
       <span style='float:right; text-align:right;'>
-        ${{cart.get_total_price}}
+        ${{cart.get_total_price_after_discount|floatformat:2}}
       </span>
     </div>
+
 
   </div>
   </div>
