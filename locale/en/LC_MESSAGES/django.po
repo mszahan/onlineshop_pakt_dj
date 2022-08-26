@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-24 22:09+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:8 templates/cart/detail.html:59
+msgid "Quantity"
+msgstr ""
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr ""
+
+#: myshop/settings.py:119
+msgid "English"
+msgstr ""
+
+#: myshop/settings.py:120
+msgid "Bengali"
+msgstr ""
+
+#: templates/base.html:16
+msgid "Xahan shop"
+msgstr ""
+
+#: templates/cart/detail.html:13
+msgid "Your shoping cart"
+msgstr ""
+
+#: templates/cart/detail.html:25
+msgid "Shopping Cart"
+msgstr ""
+
+#: templates/cart/detail.html:45
+msgid "Name"
+msgstr ""
+
+#: templates/cart/detail.html:50
+msgid "Remove"
+msgstr ""
+
+#: templates/cart/detail.html:70
+msgid "Price"
+msgstr ""
+
+#: templates/cart/detail.html:74
+msgid "Total"
+msgstr ""
+
+#: templates/cart/detail.html:90 templates/orders/order/create.html:57
+msgid "Subtotal"
+msgstr ""
+
+#: templates/cart/detail.html:100
+#, python-format
+msgid ""
+" \n"
+"                                <div class=\"order_total_title\">%(discount)s"
+"%% off</div>\n"
+"                                "
+msgstr ""
+
+#: templates/cart/detail.html:115
+msgid "Order Total:"
+msgstr ""
+
+#: templates/cart/detail.html:123
+msgid "Apply coupon"
+msgstr ""
+
+#: templates/cart/detail.html:133
+msgid "Continue Shoping"
+msgstr ""
+
+#: templates/cart/detail.html:134 templates/orders/order/create.html:13
+msgid "Checkout"
+msgstr ""
+
+#: templates/orders/order/create.html:22
+msgid "Order Summary"
+msgstr ""
+
+#: templates/orders/order/create.html:59
+#, python-format
+msgid ""
+"\n"
+"          \"%(code)s\" (%(discount)s%% off)\n"
+"          "
+msgstr ""
+
+#: templates/orders/order/create.html:71
+msgid "TOTAL"
+msgstr ""
+
+#: templates/orders/order/create.html:88
+msgid "Place order"
+msgstr ""
+
+#: templates/orders/order/created.html:5
+msgid "Thank you"
+msgstr ""
+
+#: templates/orders/order/created.html:13
+#, python-format
+msgid ""
+"\n"
+"  <p>Your order has been successfully completed. Your order number is "
+"<strong>%(order_id)s</strong>.</p>\n"
+"  "
+msgstr ""
+
+#: templates/shop/home.html:10 templates/shop/home.html:68
+msgid "Products"
+msgstr ""
+
+#: templates/shop/home.html:29
+msgid "All Products"
+msgstr ""
+
+#: templates/shop/home.html:95
+msgid "View"
+msgstr ""
+
+#: templates/shop/product_detail.html:37
+msgid "Add to cart"
+msgstr ""

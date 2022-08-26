@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 
 {% block title %}
-    Thank you
+   {% trans 'Thank you' %} 
 {% endblock title %}
 
 
 
 {% block main %}
 <div class="alert alert-success text-center mt-5" role="alert">
-    <p>Your order has been successfully completed. Your order number is <strong>{{ order.id }}</strong>.</p>
+  
+  {% blocktrans with order_id=order.id %}
+  <p>Your order has been successfully completed. Your order number is <strong>{{ order_id }}</strong>.</p>
+  {% endblocktrans %}
+  
   </div>
 {% endblock main %}
     

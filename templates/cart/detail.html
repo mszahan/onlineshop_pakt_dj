@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 
@@ -9,7 +10,7 @@
     
 
 {% block title %}
-    Your shoping cart
+{% trans 'Your shoping cart' %}   
 {% endblock title %}
 
 
@@ -21,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cart_container">
-                        <div class="cart_title">Shopping Cart<small> </div>
+                        <div class="cart_title"> {% trans 'Shopping Cart' %} </div>
 
 
                         {% for item in cart %}
@@ -41,12 +42,12 @@
 
                                     <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                         <div class="cart_item_name cart_info_col">
-                                            <div class="cart_item_title">Name</div>
+                                            <div class="cart_item_title">{% trans 'Name' %}</div>
                                             <div class="cart_item_text">{{product.name}}</div>
                                         </div>
 
                                         <div class="cart_item_color cart_info_col">
-                                            <div class="cart_item_title">Remove</div>
+                                            <div class="cart_item_title">{% trans 'Remove' %}</div>
                                             <div class="cart_item_text"><form action="{% url 'cart_remove' product.id %}" method="post">
                                                 <input type="submit" value="remove" class="btn btn-danger">
                                             {% csrf_token %}
@@ -55,7 +56,7 @@
                                         </div>
 
                                         <div class="cart_item_quantity cart_info_col">
-                                            <div class="cart_item_title">Quantity</div>
+                                            <div class="cart_item_title">{% trans 'Quantity' %}</div>
                                             <div class="cart_item_text">
                                                 <form action="{% url 'cart_add' product.id %}" method="post">
                                                     {{item.update_quantity_form.quantity}}
@@ -66,11 +67,11 @@
                                             </div>
                                         </div>
                                         <div class="cart_item_price cart_info_col">
-                                            <div class="cart_item_title">Price</div>
+                                            <div class="cart_item_title">{% trans 'Price' %}</div>
                                             <div class="cart_item_text">${{item.price}}</div>
                                         </div>
                                         <div class="cart_item_total cart_info_col">
-                                            <div class="cart_item_title">Total</div>
+                                            <div class="cart_item_title">{% trans 'Total' %} </div>
                                             <div class="cart_item_text">${{item.total_price}}</div>
                                         </div>
                                     </div>
@@ -86,7 +87,7 @@
     
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
-                                <div class="order_total_title">Subtotal:</div>
+                                <div class="order_total_title">{% trans 'Subtotal' %} :</div>
                                 <div class="order_total_amount">${{cart.get_total_price|floatformat:2}}</div>
 
 
@@ -95,7 +96,11 @@
 
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
-                                <div class="order_total_title">{{ cart.coupon.discount }}% off</div>
+                                
+                                {% blocktrans with discount=cart.coupon.discount %} 
+                                <div class="order_total_title">{{ discount }}% off</div>
+                                {% endblocktrans %}
+                                
                                 <div class="order_total_amount text-danger"> - ${{cart.get_discount|floatformat:2}}</div>
 
 
@@ -107,7 +112,7 @@
 
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
-                                <div class="order_total_title">Order Total:</div>
+                                <div class="order_total_title">{% trans 'Order Total:' %} </div>
                                 <div class="order_total_amount text-success">${{cart.get_total_price_after_discount|floatformat:2}}</div>
 
 
@@ -115,18 +120,18 @@
                         </div>
 
                         <div class="mt-5">
-                            <h5>Apply coupon</h5>
+                            <h5>{% trans 'Apply coupon' %}</h5>
                             <form action="{% url 'apply' %}" method="post" class="form-control"> 
                                 {{ coupon_apply_form }}
-                            <input type="submit"  value="Apply" class="btn btn-primary p-1"> 
+                            <input type="submit"  value="{% trans 'Apply' %}" class="btn btn-primary p-1"> 
                             {% csrf_token %} 
                             </form>
                         </div>
                         
                         <div class="cart_buttons"> 
                             <!-- <button type="button" class="button cart_button_clear"> Continue Shopping </button> -->
-                            <a href="{% url 'product_list' %}" class="btn btn-light p-3">Continue Shoping</a>
-                            <a href="{% url 'order_create' %}" class="btn btn-warning p-3">Checkout</a>
+                            <a href="{% url 'product_list' %}" class="btn btn-light p-3">{% trans 'Continue Shoping' %} </a>
+                            <a href="{% url 'order_create' %}" class="btn btn-warning p-3">{% trans 'Checkout' %}</a>
                              <!-- <button type="button" class="button cart_button_checkout">Checkout</button> </div> -->
                     </div>
                 </div>

@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-24 22:09+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:8 templates/cart/detail.html:59
+msgid "Quantity"
+msgstr ""
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr ""
+
+#: myshop/settings.py:119
+msgid "English"
+msgstr "ইংরেজি"
+
+#: myshop/settings.py:120
+msgid "Bengali"
+msgstr "বাংলা"
+
+#: templates/base.html:16
+msgid "Xahan shop"
+msgstr "জাহান বিপণি"
+
+#: templates/cart/detail.html:13
+msgid "Your shoping cart"
+msgstr "আপনার শপিং কার্ট"
+
+#: templates/cart/detail.html:25
+msgid "Shopping Cart"
+msgstr "শপিং কার্ট"
+
+#: templates/cart/detail.html:45
+msgid "Name"
+msgstr "নাম"
+
+#: templates/cart/detail.html:50
+msgid "Remove"
+msgstr "সরান"
+
+#: templates/cart/detail.html:70
+msgid "Price"
+msgstr "মূল্য"
+
+#: templates/cart/detail.html:74
+msgid "Total"
+msgstr "মোট"
+
+#: templates/cart/detail.html:90 templates/orders/order/create.html:57
+msgid "Subtotal"
+msgstr "সাবটোটাল"
+
+#: templates/cart/detail.html:100
+#, python-format
+msgid ""
+" \n"
+"                                <div class=\"order_total_title\">%(discount)s"
+"%% off</div> \n"
+"                                "
+msgstr ""
+" \n"
+"                                <div class=\"order_total_title\">%(discount)s"
+"%% ছাড়</div> \n"
+"                                "
+
+
+#: templates/cart/detail.html:115
+msgid "Order Total:"
+msgstr "অর্ডার মোট"
+
+#: templates/cart/detail.html:123
+msgid "Apply coupon"
+msgstr "কুপন ব্যবহার করুন"
+
+#: templates/cart/detail.html:133
+msgid "Continue Shoping"
+msgstr "কেনাকাটা চালিয়ে যান"
+
+#: templates/cart/detail.html:134 templates/orders/order/create.html:13
+msgid "Checkout"
+msgstr "চেকআউট"
+
+#: templates/orders/order/create.html:22
+msgid "Order Summary"
+msgstr "অর্ডার সারাংশ"
+
+#: templates/orders/order/create.html:59
+#, python-format
+msgid ""
+"\n"
+"          \"%(code)s\" (%(discount)s%% off) \n"
+"          "
+msgstr ""
+"\n"
+"          \"%(code)s\" (%(discount)s%% ছাড়) \n"
+"          "
+
+#: templates/orders/order/create.html:71
+msgid "TOTAL"
+msgstr "মোট"
+
+#: templates/orders/order/create.html:88
+msgid "Place order"
+msgstr "অর্ডার করুন"
+
+#: templates/orders/order/created.html:5
+msgid "Thank you"
+msgstr "ধন্যবাদ"
+
+#: templates/orders/order/created.html:13
+#, python-format
+msgid ""
+"\n"
+"  <p>Your order has been successfully completed. Your order number is "
+"<strong>%(order_id)s</strong>.</p> \n"
+"  "
+msgstr ""
+"\n"
+"  <p>আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে। আপনার অর্ডার নম্বর হল "
+"<strong>%(order_id)s</strong>.</p> \n"
+"  "
+
+#: templates/shop/home.html:10 templates/shop/home.html:68
+msgid "Products"
+msgstr "পণ্য"
+
+#: templates/shop/home.html:29
+msgid "All Products"
+msgstr "সব পণ্য"
+
+#: templates/shop/home.html:95
+msgid "View"
+msgstr "দেখুন"
+
+#: templates/shop/product_detail.html:37
+msgid "Add to cart"
+msgstr "কার্টে যোগ করুন"

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 
@@ -9,7 +10,7 @@
     
 
 {% block title %}
-    checkout
+{% trans "Checkout" %}
 {% endblock title %}
     
 
@@ -18,7 +19,7 @@
     <div class='window'>
       <div class='order-info'>
         <div class='order-info-content'>
-          <h2>Order Summary</h2>
+          <h2> {% trans 'Order Summary' %}</h2>
                   <div class='line'></div>
 
         <div class="me-5">
@@ -53,8 +54,13 @@
         {% if cart.coupon %}
 
         <div>
-          Subtotal : ${{cart.get_total_price}} <br>
-          "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off) <span class="neg text-danger"> : - ${{ cart.get_discount|floatformat:2 }}</span>
+          {% trans 'Subtotal' %}  : ${{cart.get_total_price}} <br>
+          
+          {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+          "{{ code }}" ({{ discount }}% off)
+          {% endblocktrans %}
+          
+           <span class="neg text-danger"> : - ${{ cart.get_discount|floatformat:2 }}</span>
 
         </div>
         {% endif %}
@@ -62,7 +68,7 @@
         
     <div class='total mt-5' >
       <span style='float:left;'>
-        TOTAL
+       {% trans 'TOTAL' %} 
       </span>
       <span style='float:right; text-align:right;'>
         ${{cart.get_total_price_after_discount|floatformat:2}}
@@ -79,7 +85,7 @@
                     <table class='half-input-table'>
                       {{form.as_table}}
                     </table>
-                    <button class='pay-btn' type="submit">Place order</button>
+                    <button class='pay-btn' type="submit"> {% trans 'Place order' %} </button>
         
                 </form>
             </div>
