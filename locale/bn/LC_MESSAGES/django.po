@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-24 22:09+0600\n"
+"POT-Creation-Date: 2022-08-26 19:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,19 +20,53 @@ msgstr ""
 
 #: cart/forms.py:8 templates/cart/detail.html:59
 msgid "Quantity"
-msgstr ""
+msgstr "পরিমাণ"
 
 #: coupons/forms.py:6
 msgid "Coupon"
-msgstr ""
+msgstr "কুপন"
 
-#: myshop/settings.py:119
+#: myshop/settings.py:124
 msgid "English"
 msgstr "ইংরেজি"
 
-#: myshop/settings.py:120
+#: myshop/settings.py:125
 msgid "Bengali"
 msgstr "বাংলা"
+
+#: myshop/urls.py:10
+msgid "admin/"
+msgstr ""
+
+#: myshop/urls.py:11
+msgid "cart/"
+msgstr ""
+
+#: myshop/urls.py:12
+msgid "orders/"
+msgstr ""
+
+#: myshop/urls.py:13
+msgid "payment/"
+msgstr ""
+
+#: myshop/urls.py:14
+#, fuzzy
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "কুপন"
+
+#: payment/urls.py:7
+msgid "process/"
+msgstr ""
+
+#: payment/urls.py:8
+msgid "done/"
+msgstr ""
+
+#: payment/urls.py:9
+msgid "canceled/"
+msgstr ""
 
 #: templates/base.html:16
 msgid "Xahan shop"
@@ -67,18 +101,22 @@ msgid "Subtotal"
 msgstr "সাবটোটাল"
 
 #: templates/cart/detail.html:100
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| " \n"
+#| "                                <div class=\"order_total_title\">"
+#| "%(discount)s%% off</div> \n"
+#| "                                "
 msgid ""
 " \n"
 "                                <div class=\"order_total_title\">%(discount)s"
-"%% off</div> \n"
+"%% off</div>\n"
 "                                "
 msgstr ""
 " \n"
 "                                <div class=\"order_total_title\">%(discount)s"
 "%% ছাড়</div> \n"
 "                                "
-
 
 #: templates/cart/detail.html:115
 msgid "Order Total:"
@@ -87,6 +125,10 @@ msgstr "অর্ডার মোট"
 #: templates/cart/detail.html:123
 msgid "Apply coupon"
 msgstr "কুপন ব্যবহার করুন"
+
+#: templates/cart/detail.html:126
+msgid "Apply"
+msgstr "এপলাই"
 
 #: templates/cart/detail.html:133
 msgid "Continue Shoping"
@@ -101,10 +143,14 @@ msgid "Order Summary"
 msgstr "অর্ডার সারাংশ"
 
 #: templates/orders/order/create.html:59
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "          \"%(code)s\" (%(discount)s%% off) \n"
+#| "          "
 msgid ""
 "\n"
-"          \"%(code)s\" (%(discount)s%% off) \n"
+"          \"%(code)s\" (%(discount)s%% off)\n"
 "          "
 msgstr ""
 "\n"
@@ -124,16 +170,21 @@ msgid "Thank you"
 msgstr "ধন্যবাদ"
 
 #: templates/orders/order/created.html:13
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "  <p>Your order has been successfully completed. Your order number is "
+#| "<strong>%(order_id)s</strong>.</p> \n"
+#| "  "
 msgid ""
 "\n"
 "  <p>Your order has been successfully completed. Your order number is "
-"<strong>%(order_id)s</strong>.</p> \n"
+"<strong>%(order_id)s</strong>.</p>\n"
 "  "
 msgstr ""
 "\n"
-"  <p>আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে। আপনার অর্ডার নম্বর হল "
-"<strong>%(order_id)s</strong>.</p> \n"
+"  <p>আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে। আপনার অর্ডার নম্বর হল <strong>"
+"%(order_id)s</strong>.</p> \n"
 "  "
 
 #: templates/shop/home.html:10 templates/shop/home.html:68

@@ -13,6 +13,7 @@ click-plugins==1.1.1
 click-repl==0.2.0
 cssselect2==0.6.0
 Django==3.2.7
+django-rosetta==0.9.8
 flower==1.1.0
 fonttools==4.34.4
 html5lib==1.1
@@ -20,6 +21,7 @@ humanize==4.2.3
 idna==3.3
 kombu==5.2.4
 Pillow==9.0.0
+polib==1.1.1
 prometheus-client==0.14.1
 prompt-toolkit==3.0.30
 pycparser==2.21
