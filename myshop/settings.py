@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #third party
     'rosetta', # for translation in admin
     'parler', # for model translation
+    'localflavor', # for form validation in localization
 
     #local
     'shop',
