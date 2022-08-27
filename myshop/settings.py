@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     #third party
     'rosetta', # for translation in admin
+    'parler', # for model translation
 
     #local
     'shop',
@@ -124,6 +125,23 @@ LANGUAGES = (
     ('en', _('English')), 
     ('bn', _('Bengali')),
 )
+
+
+#django parler settings
+# First it's list out availabel languages for the website
+#Then the default language english is set
+#then don't hide the untranslated fields 
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'bn'},
+        ),
+        'default': {
+            'fallback': 'en',
+            'hide_untranslated': False,
+            }
+    }
+
 
 LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale/'), )
 

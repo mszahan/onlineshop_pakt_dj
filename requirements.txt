@@ -13,6 +13,7 @@ click-plugins==1.1.1
 click-repl==0.2.0
 cssselect2==0.6.0
 Django==3.2.7
+django-parler==2.3
 django-rosetta==0.9.8
 flower==1.1.0
 fonttools==4.34.4
