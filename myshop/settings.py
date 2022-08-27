@@ -144,6 +144,13 @@ PARLER_LANGUAGES = {
     }
 
 
+#redis configurations
+REDIS_HOST = 'localhost' 
+REDIS_PORT = 6379 
+REDIS_DB = 1
+
+
+
 LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale/'), )
 
 TIME_ZONE = 'UTC'

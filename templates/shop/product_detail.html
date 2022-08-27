@@ -45,6 +45,44 @@
 </div>
 
 
+{% if recommended_products %}
+ 
+<div class="row">
+    <h3>{% trans "People who bought this also bought" %}</h3>
+    <hr>
+      
+    {% for product in recommended_products %}
+      
+    <div class="card col-md-3 mx-3 my-2">
+      <a href="{{product.get_absolute_url}}">
+        
+        {% if product.image %}
+          <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+        {% else %}
+          <img class="card-img-top" src="{% static 'noimg.png' %}" alt="Card image cap">
+        {% endif %}
+          
+      </a>
+      <div class="card-body">
+        <a href="{{product.get_absolute_url}}" class="link-dark">
+          <h5 class="card-title text-center">{{product.name}}</h5>
+        </a>
+
+        <h6 class="card-title text-center">${{product.price}}</h6>
+        <div class="text-center">
+
+          <a href="{{product.get_absolute_url}}" class="btn btn-dark"> {% trans 'View' %} </a>
+        </div>
+      </div>
+    </div>
+
+    
+    {% endfor %}
+
+
+</div>
+
+{% endif %}
 {% endblock main %}
     
     
